@@ -1,0 +1,26 @@
+version: "3.1"
+services: 
+    mysqldb:
+        image: mysql
+        ports:
+            - 3306:3306
+        restart: always
+        environment: 
+            MYSQL_ROOT_PASSWORD: example
+            MYSQL_USER: adminer
+            MYSQL_PASSWORD: adminer
+            MYSQL_DATABASE: adminer
+            MYSQL_ROOT_HOST: '%'
+    adminer:
+        image: adminer
+        restart: always
+        depends_on: 
+            - mysqldb
+        environment:
+            ADMINER_DEFAULT_DB_DRIVER: mysql
+            ADMINER_DEFAULT_DB_HOST: mysqldb
+            ADMINER_DEFAULT_DB_NAME: adminer
+            ADMINER_DESIGN: nette
+            ADMINER_PLUGINS: tables-filter tinymce
+        ports:
+            - 8080:8080    
