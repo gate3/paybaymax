@@ -2,12 +2,14 @@
 
 ## (Notable) Technologies Used
 
+- Docker & Docker Compose: I used docker and docker-compose to package the app dependencies as an image. So they can be deployed together. What i could have done better in this case is also add the app as a dependency and make it wait for mysql to start.
 - Awilix for Dependency Injection: It is a very powerful DI tool that works great for nodejs and is really simple to use.
 - Sequelize: This is an ORM that works great with SQL databases. It also has a useful CLI that can be used to seed database, create tables, models and other necessary files to work with SQL databases.
 - Mocha and Chai for testing
 - Simple Mock for mocking
 - EsLint with airbnb linting
 - Joi: This is a validation tool that has some rules on how to verify data.
+- Make: I used a makefile to help make running some commands easier. For example the command for creating migrations etc. They can be found in makefile.
 
 ## Design Overview
 
